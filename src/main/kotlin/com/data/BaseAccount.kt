@@ -5,11 +5,11 @@ import com.data.enums.StatusAccount
 import com.data.enums.TypeAccount
 
 open class BaseAccount(
-    val acc: String,
-    val cur: Cur?,
-    val bal: Int,
-    val status: StatusAccount,
-    val type: TypeAccount?
+    protected val acc: String,
+    protected val cur: Cur?,
+    protected val bal: Int,
+    protected val status: StatusAccount,
+    protected val type: TypeAccount?
 ) {
 
     data class Builder(var cur: Cur? = null, var type: TypeAccount? = null) {

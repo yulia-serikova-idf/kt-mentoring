@@ -5,7 +5,7 @@ import com.data.enums.Cur
 /**
  * task by data object
  */
-data class Account (val acc: String, val cur: Cur){
+data class Account (private val acc: String, private val cur: Cur){
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
