@@ -1,17 +1,29 @@
+val junitJupiterVersion: String by project
+val kotlinVersion: String by project
+val jacksonVersion: String by project
+
 plugins {
-    kotlin("jvm") version "1.5.10"
+  kotlin("jvm") version "1.5.10"
 }
 
 group = "kotlin.com"
 version = "1.0-SNAPSHOT"
 
 repositories {
-    mavenCentral()
+  mavenCentral()
 }
 
 dependencies {
-    implementation(kotlin("stdlib"))
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.0")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.0")
-    implementation("org.apache.commons:commons-lang3:3.7")
+  implementation(kotlin("stdlib"))
+  implementation("com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion")
+  implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jacksonVersion")
+  testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
+  testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
+  testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
+}
+
+tasks.test {
+  useJUnitPlatform()
+  systemProperty("config.mode", findProperty("config.mode") ?: "")
+  systemProperty("config.path", findProperty("config.path") ?: "")
 }
