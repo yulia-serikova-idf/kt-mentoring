@@ -13,9 +13,11 @@ class JsonConfigFactory : ConfigFactory {
 
   override fun getConfig(): ApplicationConfig {
     val mapper = ObjectMapper(JsonFactory()).registerModule(KotlinModule())
-    val path =
-      Paths.get(AppConfigReader.getConfigParam(TafProperties.READ_CONFIG_FILE_NAME) + ConfigExtensionType.JSON.extension)
-        .toString()
+    val path = Paths.get(
+      AppConfigReader.getConfigParam(TafProperties.READ_CONFIG_FILE_NAME)
+          + ConfigExtensionType.JSON.extension
+    )
+      .toString()
     return Thread.currentThread().contextClassLoader.getResourceAsStream(path).use {
       mapper.readValue(it, ApplicationConfig::class.java)
     }
