@@ -16,14 +16,14 @@ class ConfigProvider {
       ConfigExtensionType.JSON -> JsonConfigFactory()
       ConfigExtensionType.YAML -> YamlConfigFactory()
       else -> {
-        logger.warn("xml extension is not allowed now")
+        logger.warn("Get factory by sys.property, in param is $configExtensionType")
         getConfigFactory(valueOf(System.getProperty("CONFIG_RES_FILETYPE", "JSON")))
       }
     }
   }
 
   fun getConfigData(configExtensionType: ConfigExtensionType): ApplicationConfig {
-    logger.warn("In config provider, get factory")
+    logger.warn("Create ApplicationConfig using ${configExtensionType.name}")
     return getConfigFactory(configExtensionType).getConfig()
   }
 }
