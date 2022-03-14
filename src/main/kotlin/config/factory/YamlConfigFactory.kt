@@ -5,7 +5,7 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import config.model.ConfigExtensionType
 import config.model.ApplicationConfig
-import config.provider.TafProperties
+import config.utils.TafProperties
 import config.utils.AppConfigReader
 import org.slf4j.LoggerFactory
 import java.nio.file.Paths

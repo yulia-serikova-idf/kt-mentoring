@@ -3,7 +3,7 @@ package com
 import config.model.ApplicationConfig
 import config.model.ConfigExtensionType
 import config.provider.ConfigProvider
-import config.provider.TafProperties
+import config.utils.TafProperties
 import config.utils.AppConfigReader
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions
