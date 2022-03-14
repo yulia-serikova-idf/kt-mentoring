@@ -11,15 +11,15 @@ import config.utils.AppConfigReader.getConfigParam
 import java.nio.file.Path
 import java.nio.file.Paths
 
-abstract class BaseConfigFactory() : ConfigFactory {
-  abstract override var mapper: ObjectMapper
-  abstract override var path: Path
+class BaseConfigFactory() : ConfigFactory {
+  override lateinit var mapper: ObjectMapper
+  override lateinit var path: Path
 
   constructor(configExtensionType: ConfigExtensionType) : this() {
-    this.path = Paths.get(getConfigParam(READ_CONFIG_FILE_NAME) + configExtensionType.extension)
-    when (configExtensionType) {
-      ConfigExtensionType.JSON -> this.mapper = ObjectMapper(JsonFactory()).registerModule(KotlinModule())
-      ConfigExtensionType.YAML -> this.mapper = ObjectMapper(YAMLFactory()).registerModule(KotlinModule())
+    path = Paths.get(getConfigParam(READ_CONFIG_FILE_NAME) + configExtensionType.extension)
+    mapper = when (configExtensionType) {
+      ConfigExtensionType.JSON -> ObjectMapper(JsonFactory()).registerModule(KotlinModule())
+      ConfigExtensionType.YAML -> ObjectMapper(YAMLFactory()).registerModule(KotlinModule())
     }
   }
 
