@@ -10,7 +10,6 @@ import config.model.ApplicationConfig
 class ConfigProvider {
 
   fun getConfigFactory(configExtensionType: ConfigExtensionType?): ConfigFactory {
-
     return when (configExtensionType) {
       ConfigExtensionType.JSON -> JsonConfigFactory()
       ConfigExtensionType.YAML -> YamlConfigFactory()
