@@ -9,5 +9,4 @@ data class ApplicationConfig(
   var user: String,
   var pass: String,
   @JsonProperty("driver") var driverType: DriverType
-) {
-}
+)

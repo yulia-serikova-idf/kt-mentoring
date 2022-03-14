@@ -2,14 +2,14 @@ package config.utils
 
 import java.util.Properties
 
-class AppConfigReader {
-  companion object {
-    fun getConfigParam(configName: String): String {
-      val prop = Properties()
-      Thread.currentThread().contextClassLoader.getResourceAsStream("application/app.properties").use {
-        prop.load(it)
-        return prop[configName].toString()
-      }
+object AppConfigReader {
+  private const val TAF_CONFIG_FILE = "application/app.properties"
+
+  fun getConfigParam(configName: String): String {
+    val prop = Properties()
+    Thread.currentThread().contextClassLoader.getResourceAsStream(TAF_CONFIG_FILE).use {
+      prop.load(it)
+      return prop[configName].toString()
     }
   }
 }
