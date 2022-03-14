@@ -1,6 +1,6 @@
 package com
 
-import config.model.ApplicationConfig
+import config.factory.YamlConfigFactory
 import config.model.ConfigExtensionType
 import config.provider.ConfigProvider
 import config.provider.TafProperties
@@ -21,8 +21,13 @@ class ConfigProviderTest {
 
   @Test
   fun compare_config_by_sys_type() {
-    val fileExtensionType = ConfigExtensionType.valueOf(System.getProperty("CONFIG_RES_FILETYPE", "XML"))
-    Assertions.assertEquals(ConfigProvider().getConfigData(fileExtensionType)::class, ApplicationConfig::class)
+    val fileExtensionType = ConfigExtensionType.valueOf(System.getProperty("CONFIG_RES_FILETYPE", "JSON"))
+    Assertions.assertEquals(ConfigProvider().getConfigFactory(fileExtensionType)::class, YamlConfigFactory::class)
+  }
+
+  @Test
+  fun compare_config_by_default_value() {
+    Assertions.assertEquals(ConfigProvider().getConfigFactory(null)::class, YamlConfigFactory::class)
   }
 
   @AfterEach

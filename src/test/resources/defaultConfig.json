@@ -1,7 +1,7 @@
 {
-  "user": "moneyman",
-  "pass": 1005,
-  "host": "qa-delivery-ru-release.moneyman.ru",
+  "user": "test",
+  "pass": "test",
+  "host": "test.ru",
   "driver" : "local",
   "isActual":true
 }

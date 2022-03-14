@@ -4,19 +4,21 @@ import config.factory.ConfigFactory
 import config.factory.JsonConfigFactory
 import config.factory.YamlConfigFactory
 import config.model.ConfigExtensionType
+import config.model.ConfigExtensionType.valueOf
 import config.model.ApplicationConfig
 import org.slf4j.LoggerFactory
 
 class ConfigProvider {
   private var logger = LoggerFactory.getLogger(ConfigProvider::class.java)
 
-  private fun getConfigFactory(configExtensionType: ConfigExtensionType): ConfigFactory {
+  fun getConfigFactory(configExtensionType: ConfigExtensionType?): ConfigFactory {
     return when (configExtensionType) {
       ConfigExtensionType.JSON -> JsonConfigFactory()
       ConfigExtensionType.YAML -> YamlConfigFactory()
-      ConfigExtensionType.XML -> {
+      else -> {
         logger.warn("xml extension is not allowed now")
-        throw java.lang.IllegalArgumentException("xml extension is not allowed now")}
+        getConfigFactory(valueOf(System.getProperty("CONFIG_RES_FILETYPE", "JSON")))
+      }
     }
   }
 
