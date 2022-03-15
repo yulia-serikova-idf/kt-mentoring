@@ -13,16 +13,14 @@ import org.slf4j.LoggerFactory
 class ConfigProvider {
   private var logger = LoggerFactory.getLogger(ConfigProvider::class.java)
 
-  fun getConfigFactory(configExtensionType: ConfigExtensionType?): ConfigFactory {
+  fun getConfigFactory(configExtensionType: ConfigExtensionType? = null): ConfigFactory {
     return when (configExtensionType) {
       ConfigExtensionType.JSON -> JsonConfigFactory()
       ConfigExtensionType.YAML -> YamlConfigFactory()
       else -> {
         logger.info("Get factory by sys.property, in param was $configExtensionType")
-        //file
         val defaultConfigFileType = getConfigParam(TafProperties.READ_CONFIG_FILE_TYPE)
         logger.info("Extension by file $defaultConfigFileType")
-        //sys var
         val finalConfigFileType = valueOf(
           System.getProperty(CONFIG_FILETYPE_SYSTEM_PROPERTY, defaultConfigFileType)
         )
@@ -32,7 +30,7 @@ class ConfigProvider {
     }
   }
 
-  fun getConfigData(configExtensionType: ConfigExtensionType?): ApplicationConfig {
+  fun getConfigData(configExtensionType: ConfigExtensionType? = null): ApplicationConfig {
     logger.info("Create ApplicationConfig using ${configExtensionType?.name}")
     return getConfigFactory(configExtensionType).getConfig()
   }
