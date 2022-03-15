@@ -24,7 +24,7 @@ class ConfigProvider {
         val finalConfigFileType = valueOf(
           System.getProperty(CONFIG_FILETYPE_SYSTEM_PROPERTY, defaultConfigFileType)
         )
-        logger.info("Extension by system property $defaultConfigFileType")
+        logger.info("Extension by system property $finalConfigFileType")
         getConfigFactory(finalConfigFileType)
       }
     }
