@@ -6,6 +6,8 @@ import config.factory.YamlConfigFactory
 import config.model.ConfigExtensionType
 import config.model.ConfigExtensionType.valueOf
 import config.model.ApplicationConfig
+import config.provider.TafProperties.CONFIG_FILETYPE_SYSTEM_PROPERTY
+import config.utils.AppConfigReader.getConfigParam
 import org.slf4j.LoggerFactory
 
 class ConfigProvider {
@@ -17,12 +19,18 @@ class ConfigProvider {
       ConfigExtensionType.YAML -> YamlConfigFactory()
       else -> {
         logger.warn("Get factory by sys.property, in param is $configExtensionType")
-        getConfigFactory(valueOf(System.getProperty("CONFIG_RES_FILETYPE", "JSON")))
+        //file
+        val defaultConfigFileType = getConfigParam(TafProperties.READ_CONFIG_FILE_TYPE)
+        //sys var
+        val finalConfigFileType = valueOf(
+          System.getProperty(CONFIG_FILETYPE_SYSTEM_PROPERTY, defaultConfigFileType)
+        )
+        getConfigFactory(finalConfigFileType)
       }
     }
   }
 
-  fun getConfigData(configExtensionType: ConfigExtensionType): ApplicationConfig {
+  fun getConfigData(configExtensionType: ConfigExtensionType?): ApplicationConfig {
     logger.warn("Create ApplicationConfig using ${configExtensionType.name}")
     return getConfigFactory(configExtensionType).getConfig()
   }
