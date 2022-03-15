@@ -18,20 +18,22 @@ class ConfigProvider {
       ConfigExtensionType.JSON -> JsonConfigFactory()
       ConfigExtensionType.YAML -> YamlConfigFactory()
       else -> {
-        logger.warn("Get factory by sys.property, in param is $configExtensionType")
+        logger.info("Get factory by sys.property, in param was $configExtensionType")
         //file
         val defaultConfigFileType = getConfigParam(TafProperties.READ_CONFIG_FILE_TYPE)
+        logger.info("Extension by file $defaultConfigFileType")
         //sys var
         val finalConfigFileType = valueOf(
           System.getProperty(CONFIG_FILETYPE_SYSTEM_PROPERTY, defaultConfigFileType)
         )
+        logger.info("Extension by system property $defaultConfigFileType")
         getConfigFactory(finalConfigFileType)
       }
     }
   }
 
   fun getConfigData(configExtensionType: ConfigExtensionType?): ApplicationConfig {
-    logger.warn("Create ApplicationConfig using ${configExtensionType.name}")
+    logger.info("Create ApplicationConfig using ${configExtensionType?.name}")
     return getConfigFactory(configExtensionType).getConfig()
   }
 }
