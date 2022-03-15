@@ -20,8 +20,8 @@ class ConfigProviderBySysPropertyTest {
   }
 
   @Test
-  fun `compare factory by system property`() {
-    Assertions.assertEquals(ConfigProvider().getConfigFactory(null)::class, YamlConfigFactory::class)
+  fun `getConfigFactory returns factory using system property config file type when file param is null`() {
+    Assertions.assertEquals(ConfigProvider().getConfigFactory()::class, YamlConfigFactory::class)
   }
 
   @AfterEach

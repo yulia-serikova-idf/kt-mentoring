@@ -11,14 +11,12 @@ import config.utils.AppConfigReader.getConfigParam
 
 class ConfigProvider {
 
-  fun getConfigFactory(configExtensionType: ConfigExtensionType?): ConfigFactory {
+  fun getConfigFactory(configExtensionType: ConfigExtensionType? = null): ConfigFactory {
     return when (configExtensionType) {
       ConfigExtensionType.JSON -> JsonConfigFactory()
       ConfigExtensionType.YAML -> YamlConfigFactory()
       else -> {
-        //file
         val defaultConfigFileType = getConfigParam(TafProperties.READ_CONFIG_FILE_TYPE)
-        //sys var
         val finalConfigFileType = valueOf(
           System.getProperty(CONFIG_FILETYPE_SYSTEM_PROPERTY, defaultConfigFileType)
         )
@@ -27,7 +25,7 @@ class ConfigProvider {
     }
   }
 
-  fun getConfigData(configExtensionType: ConfigExtensionType?): ApplicationConfig {
+  fun getConfigData(configExtensionType: ConfigExtensionType? = null): ApplicationConfig {
     return getConfigFactory(configExtensionType).getConfig()
   }
 }
