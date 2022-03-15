@@ -10,7 +10,7 @@ class ApplicationConfigTest {
 
   @ParameterizedTest
   @EnumSource(value = ConfigExtensionType::class)
-  fun compare_host_by_params(extensionTypes: ConfigExtensionType) {
+  fun `getConfigFactory returns factory using types from ConfigExtensionType`(extensionTypes: ConfigExtensionType) {
     val config = ConfigProvider().getConfigData(extensionTypes)
     Assertions.assertNotNull(config)
   }
