@@ -1,0 +1,3 @@
+browser: CHROME
+browserSize: maximize
+defaultTimeout: 60
