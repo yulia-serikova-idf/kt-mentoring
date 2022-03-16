@@ -6,10 +6,12 @@ import pages.blocks.LoginPopUp
 
 class LoginTest : BaseUITest() {
 
+  private val mainPage = MainPage()
+
   @Test
-  fun new() {
-    MainPage().unload()
+  fun `check success login by CRM`() {
+    mainPage.unload()
     LoginPopUp().auth(applicationConfig)
-    MainPage().load()
+    mainPage.load()
   }
 }
