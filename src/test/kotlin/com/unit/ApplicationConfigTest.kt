@@ -1,4 +1,4 @@
-package com
+package com.unit
 
 import config.model.ConfigExtensionType
 import config.provider.ConfigProvider

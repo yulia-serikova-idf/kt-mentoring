@@ -1,8 +1,8 @@
 package config.provider
 
 import config.factory.ConfigFactory
-import config.factory.JsonConfigFactory
-import config.factory.YamlConfigFactory
+import config.factory.app.JsonConfigFactory
+import config.factory.app.YamlConfigFactory
 import config.model.ConfigExtensionType
 import config.model.ConfigExtensionType.valueOf
 import config.model.ApplicationConfig
@@ -32,6 +32,6 @@ class ConfigProvider {
 
   fun getConfigData(configExtensionType: ConfigExtensionType? = null): ApplicationConfig {
     logger.info("Create ApplicationConfig using ${configExtensionType?.name}")
-    return getConfigFactory(configExtensionType).getConfig()
+    return getConfigFactory(configExtensionType).getConfig() as ApplicationConfig
   }
 }

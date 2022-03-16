@@ -1,7 +1,7 @@
 package driver.factory
 
-import driver.model.DriverSettings
+import config.model.DriverConfig
 
 interface DriverFactory {
-  fun setDriver(driver: DriverSettings)
+  fun setDriver(driverConfig: DriverConfig)
 }

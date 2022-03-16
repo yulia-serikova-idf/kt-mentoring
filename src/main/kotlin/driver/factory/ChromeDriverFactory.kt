@@ -1,10 +1,11 @@
 package driver.factory
 
-import driver.model.DriverSettings
-import io.github.bonigarcia.wdm.WebDriverManager;
+import config.model.DriverConfig
+import io.github.bonigarcia.wdm.WebDriverManager
 
-class ChromeDriverFactory: DriverFactory {
-  override fun setDriver(driver: DriverSettings) {
-    WebDriverManager.chromedriver().setup();
+class ChromeDriverFactory : BaseDriverFactory() {
+  override fun setDriver(driverConfig: DriverConfig) {
+    super.setDriver(driverConfig)
+    WebDriverManager.chromedriver().setup()
   }
 }

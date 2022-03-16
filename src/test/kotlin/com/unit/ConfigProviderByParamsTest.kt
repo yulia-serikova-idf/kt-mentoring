@@ -1,7 +1,7 @@
-package com
+package com.unit
 
-import config.factory.JsonConfigFactory
-import config.factory.YamlConfigFactory
+import config.factory.app.JsonConfigFactory
+import config.factory.app.YamlConfigFactory
 import config.model.ConfigExtensionType.JSON
 import config.provider.ConfigProvider
 import org.junit.jupiter.api.Assertions

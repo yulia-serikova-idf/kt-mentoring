@@ -1,6 +1,6 @@
-package com
+package com.unit
 
-import config.factory.YamlConfigFactory
+import config.factory.app.YamlConfigFactory
 import config.provider.ConfigProvider
 import config.provider.TafProperties
 import config.utils.AppConfigReader

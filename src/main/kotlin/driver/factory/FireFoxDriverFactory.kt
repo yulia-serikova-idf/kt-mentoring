@@ -1,9 +1,11 @@
 package driver.factory
 
-import driver.model.DriverSettings
+import config.model.DriverConfig
+import io.github.bonigarcia.wdm.WebDriverManager
 
-class FireFoxDriverFactory: DriverFactory {
-  override fun setDriver(driver: DriverSettings) {
-    TODO("Not yet implemented")
+class FireFoxDriverFactory : BaseDriverFactory() {
+  override fun setDriver(driverConfig: DriverConfig) {
+    super.setDriver(driverConfig)
+    WebDriverManager.firefoxdriver().setup()
   }
 }
