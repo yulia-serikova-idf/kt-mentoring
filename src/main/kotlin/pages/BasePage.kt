@@ -1,4 +1,5 @@
 package pages
 
-class BasePage {
+interface BasePage {
+   fun load()
 }

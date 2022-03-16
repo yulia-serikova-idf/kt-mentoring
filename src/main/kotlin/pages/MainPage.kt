@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory
 /**
  * пока без собственных ожиданий
  */
-class MainPage : BasePage() {
+class MainPage : BasePage {
   private var logger = LoggerFactory.getLogger(MainPage::class.java)
 
   private val calcBlock: String = "//div[contains(@class, 'calculator-block')]"

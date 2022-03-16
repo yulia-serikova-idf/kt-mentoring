@@ -3,5 +3,6 @@
   "pass": "test",
   "host": "test.ru",
   "driver" : "local",
-  "isActual":true
+  "isActual":true,
+  "prefix": "https://"
 }

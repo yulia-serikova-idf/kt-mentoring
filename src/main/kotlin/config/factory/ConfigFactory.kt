@@ -1,7 +1,7 @@
 package config.factory
 
-import config.model.ApplicationConfig
+import config.model.Config
 
 interface ConfigFactory {
-  fun getConfig(): ApplicationConfig
+  fun getConfig(): Config
 }
