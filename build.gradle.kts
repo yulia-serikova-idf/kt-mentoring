@@ -26,7 +26,6 @@ dependencies {
   implementation("org.slf4j:slf4j-log4j12:$slf4jVersion")
   implementation("io.github.bonigarcia:webdrivermanager:$webDriverManagerVersion")
   implementation("com.codeborne:selenide:$selenideVersion")
-  implementation("com.squareup.okhttp3:okhttp:4.9.3")
   testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
   testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
