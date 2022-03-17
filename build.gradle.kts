@@ -5,7 +5,6 @@ val log4jVersion: String by project
 val slf4jVersion: String by project
 val webDriverManagerVersion: String by project
 val selenideVersion: String by project
-val okHttpVersion: String by project
 
 plugins {
   kotlin("jvm") version "1.5.10"
