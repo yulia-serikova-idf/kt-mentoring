@@ -1,6 +1,9 @@
-user: "test"
-pass: "test"
-host: "test.ru"
+user: moneyman
+pass: 1005
+host: qa-delivery-ru-release.moneyman.ru
 driver: local
 isActual: true
-prefix: "https://"
+prefixProtocol: HTTPS
+browser: CHROME
+maximize: true
+defaultTimeout: 10

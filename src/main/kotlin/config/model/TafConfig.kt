@@ -1,4 +1,3 @@
 package config.model
 
-open class Config {
-}
+interface TafConfig

@@ -1,7 +1,7 @@
 package config.factory
 
-import config.model.Config
+import config.model.TafConfig
 
 interface ConfigFactory {
-  fun getConfig(): Config
+  fun getConfig(): TafConfig
 }

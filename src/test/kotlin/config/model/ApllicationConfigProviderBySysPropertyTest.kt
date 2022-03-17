@@ -1,7 +1,7 @@
-package com.unit
+package config.model
 
 import config.factory.app.YamlConfigFactory
-import config.provider.ConfigProvider
+import config.provider.ApplicationConfigProvider
 import config.provider.TafProperties
 import config.utils.AppConfigReader
 import org.junit.jupiter.api.AfterEach
@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-class ConfigProviderBySysPropertyTest {
+class ApllicationConfigProviderBySysPropertyTest {
 
   @BeforeEach
   fun init() {
@@ -21,7 +21,7 @@ class ConfigProviderBySysPropertyTest {
 
   @Test
   fun `getConfigFactory returns factory using system property config file type when file param is null`() {
-    Assertions.assertEquals(ConfigProvider().getConfigFactory()::class, YamlConfigFactory::class)
+    Assertions.assertEquals(ApplicationConfigProvider().getConfigFactory()::class, YamlConfigFactory::class)
   }
 
   @AfterEach

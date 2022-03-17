@@ -10,8 +10,8 @@ import config.provider.TafProperties.CONFIG_FILETYPE_SYSTEM_PROPERTY
 import config.utils.AppConfigReader.getConfigParam
 import org.slf4j.LoggerFactory
 
-class ConfigProvider {
-  private var logger = LoggerFactory.getLogger(ConfigProvider::class.java)
+class ApplicationConfigProvider {
+  private var logger = LoggerFactory.getLogger(ApplicationConfigProvider::class.java)
 
   fun getConfigFactory(configExtensionType: ConfigExtensionType? = null): ConfigFactory {
     return when (configExtensionType) {

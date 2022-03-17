@@ -1,7 +1,5 @@
 package config.model
 
-import com.fasterxml.jackson.annotation.JsonValue
-
-enum class BrowserType(@JsonValue val browserType: String) {
+enum class BrowserType(val browserType: String) {
   CHROME("chrome"), FIREFOX("firefox")
 }

@@ -1,6 +1,5 @@
-package com.unit
+package config.model
 
-import config.model.DriverConfig
 import config.provider.DriverConfigProvider
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
