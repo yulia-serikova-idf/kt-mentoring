@@ -14,16 +14,11 @@ abstract class BaseUITest {
   lateinit var applicationConfig: ApplicationConfig
   lateinit var driverConfig: DriverConfig
 
-  /**
-   * or before??
-   */
   @BeforeEach
   fun init() {
     applicationConfig = ApplicationConfigProvider().getConfigData()
     driverConfig = DriverConfigProvider().getConfigData()
     DriverProvider().define(driverConfig)
-    Browser.openWithUrl(applicationConfig.getBaseUrl())
-//    WebDriverRunner.getWebDriver().get(applicationConfig.getBaseUrl())
   }
 
   @AfterEach

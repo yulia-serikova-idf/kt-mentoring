@@ -9,12 +9,8 @@ class DriverProvider {
 
   fun define(driverConfig: DriverConfig) {
     val driverFactory = when (driverConfig.browser) {
-      BrowserType.CHROME -> {
-        ChromeDriverFactory()
-      }
-      BrowserType.FIREFOX -> {
-        FirefoxDriverFactory()
-      }
+      BrowserType.CHROME -> ChromeDriverFactory()
+      BrowserType.FIREFOX -> FirefoxDriverFactory()
     }
     driverFactory.setDriver(driverConfig)
   }
