@@ -8,7 +8,7 @@ object Button {
   private var logger = LoggerFactory.getLogger(Button::class.java)
 
   fun click(locator: By) {
+    logger.info("Try click on button $locator")
     `$`(locator).click()
-    logger.info("Click on button $locator")
   }
 }
