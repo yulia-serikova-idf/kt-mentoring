@@ -17,23 +17,23 @@ class CustomHttpClientTest {
   val wrongRoute: String = AppConfigReader.getConfigParam(CONFIG_REGISTRATION_ROUTE_WRONG)
 
   @Test
-  fun `verify response non null`() {
+  fun `verify registration get request - response non null`() {
     val response: TafResponse = CustomHttpClient().get(applicationConfig.setRoute(route))
     Assertions.assertNotNull(response)
   }
 
   @Test
-  fun `verify AuthUser param in cookie`() {
+  fun `verify registration get request -  AuthUser param in response cookie non null`() {
     val response: TafResponse = CustomHttpClient().get(applicationConfig.setRoute(route))
     Assertions.assertNotNull(response.getCookieParam("AuthUser"))
   }
 
   @Test
-  fun `verify exception message when route is wrong`() {
+  fun `verify registration get request - exception message when route is wrong`() {
     val exception: Exception = assertThrows(Exception::class.java)
     { CustomHttpClient().get(applicationConfig.setRoute(wrongRoute)) }
     val expectedMessage = AppConfigReader.getConfigParam(CONFIG_MYEXCEPT_MESSAGE)
     val actualMessage = exception.message
-    Assertions.assertTrue(actualMessage!!.contains(expectedMessage));
+    Assertions.assertTrue(actualMessage!!.contains(expectedMessage))
   }
 }
