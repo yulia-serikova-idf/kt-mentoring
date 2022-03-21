@@ -14,7 +14,7 @@ data class ApplicationConfig(
     return "${prefixProtocol.prefixName}$user:$pass@$host"
   }
 
-  fun getBaseUrl(): String {
-    return "${prefixProtocol.prefixName}$host"
+  fun setRoute(route: String): String {
+    return getBaseUrlWithAuthorisation() + route
   }
 }
