@@ -1,8 +1,9 @@
 package config.model
 
-import config.provider.DriverConfigProvider
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import ui.driver.config.model.DriverConfig
+import ui.driver.config.provider.DriverConfigProvider
 
 class DriverConfigTest {
 

@@ -1,13 +1,13 @@
 package integration.ui
 
-import config.model.ApplicationConfig
-import config.model.DriverConfig
-import config.provider.ApplicationConfigProvider
-import config.provider.DriverConfigProvider
-import driver.provider.DriverProvider
+import app.config.model.ApplicationConfig
+import app.config.provider.ApplicationConfigProvider
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import ui.Browser
+import ui.driver.config.model.DriverConfig
+import ui.driver.config.provider.DriverConfigProvider
+import ui.driver.provider.DriverProvider
 
 abstract class BaseUITest {
 

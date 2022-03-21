@@ -1,6 +1,7 @@
-package config.model
+package app.config.model
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import config.model.TafConfig
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class ApplicationConfig(

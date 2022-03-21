@@ -1,11 +1,12 @@
-package config.provider
+package app.config.provider
 
+import app.config.factory.JsonConfigFactory
+import app.config.factory.YamlConfigFactory
+import app.config.model.ApplicationConfig
+import app.config.model.ConfigExtensionType
+import app.config.model.ConfigExtensionType.valueOf
 import config.factory.ConfigFactory
-import config.factory.app.JsonConfigFactory
-import config.factory.app.YamlConfigFactory
-import config.model.ConfigExtensionType
-import config.model.ConfigExtensionType.valueOf
-import config.model.ApplicationConfig
+import config.provider.TafProperties
 import config.provider.TafProperties.CONFIG_FILETYPE_SYSTEM_PROPERTY
 import config.utils.AppConfigReader.getConfigParam
 import org.slf4j.LoggerFactory

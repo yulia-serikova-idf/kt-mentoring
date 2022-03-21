@@ -1,7 +1,7 @@
 package config.model
 
-import config.factory.app.YamlConfigFactory
-import config.provider.ApplicationConfigProvider
+import app.config.factory.YamlConfigFactory
+import app.config.provider.ApplicationConfigProvider
 import config.provider.TafProperties
 import config.utils.AppConfigReader
 import org.junit.jupiter.api.AfterEach

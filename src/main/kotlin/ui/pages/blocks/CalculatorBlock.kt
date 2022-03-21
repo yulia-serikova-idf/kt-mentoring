@@ -6,11 +6,10 @@ import org.slf4j.LoggerFactory
 
 class CalculatorBlock : BaseBlock {
   private var logger = LoggerFactory.getLogger(CalculatorBlock::class.java)
-
-  override val mainFrameLocator: String = "//div[contains(@class, 'calculator-block')]"
+  override val blockLocator: String = "//div[contains(@class, 'calculator-block')]"
 
   override fun checkFrameIsLoaded() {
-    `$x`(mainFrameLocator).shouldBe(Condition.visible)
+    `$x`(blockLocator).shouldBe(Condition.visible)
     logger.info("Calculator block is visible")
   }
 }
