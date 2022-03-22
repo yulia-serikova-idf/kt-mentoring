@@ -1,4 +1,4 @@
-package config.model
+package app.config.model
 
 enum class ConfigExtensionType(val extension: String) {
   YAML(".yaml"), JSON(".json");

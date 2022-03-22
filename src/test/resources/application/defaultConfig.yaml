@@ -1,0 +1,6 @@
+user: moneyman
+pass: 1005
+host: qa-delivery-ru-release.moneyman.ru
+driver: local
+isActual: true
+prefixProtocol: HTTPS

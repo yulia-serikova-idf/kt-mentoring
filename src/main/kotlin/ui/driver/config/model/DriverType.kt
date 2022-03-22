@@ -1,4 +1,4 @@
-package config.model
+package ui.driver.config.model
 
 import com.fasterxml.jackson.annotation.JsonValue
 

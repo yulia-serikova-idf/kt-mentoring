@@ -1,17 +1,18 @@
-package config.provider
+package app.config.provider
 
+import app.config.factory.JsonConfigFactory
+import app.config.factory.YamlConfigFactory
+import app.config.model.ApplicationConfig
+import app.config.model.ConfigExtensionType
+import app.config.model.ConfigExtensionType.valueOf
 import config.factory.ConfigFactory
-import config.factory.JsonConfigFactory
-import config.factory.YamlConfigFactory
-import config.model.ConfigExtensionType
-import config.model.ConfigExtensionType.valueOf
-import config.model.ApplicationConfig
+import config.provider.TafProperties
 import config.provider.TafProperties.CONFIG_FILETYPE_SYSTEM_PROPERTY
 import config.utils.AppConfigReader.getConfigParam
 import org.slf4j.LoggerFactory
 
-class ConfigProvider {
-  private var logger = LoggerFactory.getLogger(ConfigProvider::class.java)
+class ApplicationConfigProvider {
+  private var logger = LoggerFactory.getLogger(ApplicationConfigProvider::class.java)
 
   fun getConfigFactory(configExtensionType: ConfigExtensionType? = null): ConfigFactory {
     return when (configExtensionType) {
@@ -32,6 +33,6 @@ class ConfigProvider {
 
   fun getConfigData(configExtensionType: ConfigExtensionType? = null): ApplicationConfig {
     logger.info("Create ApplicationConfig using ${configExtensionType?.name}")
-    return getConfigFactory(configExtensionType).getConfig()
+    return getConfigFactory(configExtensionType).getConfig() as ApplicationConfig
   }
 }
