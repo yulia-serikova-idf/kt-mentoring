@@ -1,7 +1,7 @@
-package driver.factory
+package ui.driver.factory
 
-import config.model.DriverConfig
 import io.github.bonigarcia.wdm.WebDriverManager
+import ui.driver.config.model.DriverConfig
 
 class FirefoxDriverFactory : BaseDriverFactory() {
   override fun setDriver(driverConfig: DriverConfig) {

@@ -1,6 +1,6 @@
-package driver.factory
+package ui.driver.factory
 
-import config.model.DriverConfig
+import ui.driver.config.model.DriverConfig
 
 interface DriverFactory {
   fun setDriver(driverConfig: DriverConfig)

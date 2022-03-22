@@ -1,15 +1,15 @@
-package config.factory.driver
+package ui.driver.config.factory
 
+import app.config.model.ConfigExtensionType
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
 import config.factory.BaseConfigFactory
-import config.model.ConfigExtensionType
-import config.model.DriverConfig
 import config.model.TafConfig
 import config.provider.TafProperties
+import ui.driver.config.model.DriverConfig
 
 class YamlDriverConfigFactory() : BaseConfigFactory(
   ConfigExtensionType.YAML,
-  TafProperties.READ_CONFIG_FILE_NAME,
+  TafProperties.READ_CONFIG_DRIVER_FILE_NAME,
   YAMLFactory()
 ) {
   override fun getConfig(): TafConfig {

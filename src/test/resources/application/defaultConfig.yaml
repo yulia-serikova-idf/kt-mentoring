@@ -4,7 +4,3 @@ host: qa-delivery-ru-release.moneyman.ru
 driver: local
 isActual: true
 prefixProtocol: HTTPS
-browser: CHROME
-maximize: true
-browserSize: 1920x1080
-defaultTimeout: 10

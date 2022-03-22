@@ -1,9 +1,9 @@
-package driver.provider
+package ui.driver.provider
 
-import config.model.BrowserType
-import config.model.DriverConfig
-import driver.factory.ChromeDriverFactory
-import driver.factory.FirefoxDriverFactory
+import ui.driver.config.model.BrowserType
+import ui.driver.config.model.DriverConfig
+import ui.driver.factory.ChromeDriverFactory
+import ui.driver.factory.FirefoxDriverFactory
 
 class DriverProvider {
 

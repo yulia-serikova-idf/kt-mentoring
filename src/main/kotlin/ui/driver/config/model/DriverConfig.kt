@@ -1,8 +1,7 @@
-package config.model
+package ui.driver.config.model
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import config.model.TafConfig
 
-@JsonIgnoreProperties(ignoreUnknown = true)
 data class DriverConfig(
   val browser: BrowserType,
   val maximize: Boolean,

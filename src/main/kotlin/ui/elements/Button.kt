@@ -1,4 +1,4 @@
-package elements
+package ui.elements
 
 import com.codeborne.selenide.Selenide.`$`
 import org.openqa.selenium.By
@@ -8,7 +8,7 @@ object Button {
   private var logger = LoggerFactory.getLogger(Button::class.java)
 
   fun click(locator: By) {
-    logger.info("Try click on button $locator")
+    logger.info("Click on button $locator")
     `$`(locator).click()
   }
 }
