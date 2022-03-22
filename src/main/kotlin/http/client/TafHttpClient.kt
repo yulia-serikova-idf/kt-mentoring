@@ -1,7 +1,7 @@
 package http.client
 
-import config.model.ApplicationConfig
-import config.provider.ApplicationConfigProvider
+import app.config.model.ApplicationConfig
+import app.config.provider.ApplicationConfigProvider
 import http.model.response.TafResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
