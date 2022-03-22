@@ -5,4 +5,5 @@ object TafProperties {
   const val READ_CONFIG_FILE_NAME = "config.resource.file.name"
   const val CONFIG_FILETYPE_SYSTEM_PROPERTY = "config.file.type"
   const val READ_CONFIG_DRIVER_FILE_NAME = "config.resource.file.driver.name"
+  const val READ_CONFIG_DB_FILE_NAME = "config.resource.file.db.name"
 }

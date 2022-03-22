@@ -1,0 +1,4 @@
+url: jdbc:mysql://10.1.1.56:3306
+user: automation-tests
+password: Isdklf564tf89ODasfj35645traefdsf
+schema: ru_master_moneyman
