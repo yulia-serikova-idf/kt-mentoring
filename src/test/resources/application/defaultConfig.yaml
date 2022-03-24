@@ -4,3 +4,4 @@ host: qa-delivery-ru-release.moneyman.ru
 driver: local
 isActual: true
 prefixProtocol: HTTPS
+registrationRoute: /client-area/registration

@@ -3,29 +3,30 @@ package http.client
 import app.config.model.ApplicationConfig
 import app.config.provider.ApplicationConfigProvider
 import config.provider.TafProperties.CONFIG_MYEXCEPT_MESSAGE
-import config.provider.TafProperties.CONFIG_REGISTRATION_ROUTE
-import config.provider.TafProperties.CONFIG_REGISTRATION_ROUTE_WRONG
 import config.utils.AppConfigReader
 import http.model.response.TafResponse
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Test
 
+/**
+ * TODO MOCK
+ */
 class CustomHttpClientTest {
   val applicationConfig: ApplicationConfig = ApplicationConfigProvider().getConfigData()
-  val route: String = AppConfigReader.getConfigParam(CONFIG_REGISTRATION_ROUTE)
-  val wrongRoute: String = AppConfigReader.getConfigParam(CONFIG_REGISTRATION_ROUTE_WRONG)
+  val wrongRoute: String = "/client-area/registration1"
 
   @Test
   fun `verify registration get request - response non null`() {
-    val response: TafResponse = CustomHttpClient().get(applicationConfig.setRoute(route))
+    val response: TafResponse = CustomHttpClient().get(applicationConfig.getRegistrationRoutePath())
     Assertions.assertNotNull(response)
   }
 
   @Test
   fun `verify registration get request -  AuthUser param in response cookie non null`() {
-    val response: TafResponse = CustomHttpClient().get(applicationConfig.setRoute(route))
-    Assertions.assertNotNull(response.getCookieParam("AuthUser"))
+    val expectedCookieName = "AuthUser"
+    val response: TafResponse = CustomHttpClient().get(applicationConfig.getRegistrationRoutePath())
+    Assertions.assertNotNull(response.getCookieByName(expectedCookieName))
   }
 
   @Test

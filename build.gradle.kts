@@ -6,7 +6,6 @@ val slf4jVersion: String by project
 val webDriverManagerVersion: String by project
 val selenideVersion: String by project
 val okHttpVersion: String by project
-val okHttpLoggerInterseptorVersion: String by project
 
 plugins {
   kotlin("jvm") version "1.5.10"
@@ -29,7 +28,7 @@ dependencies {
   implementation("io.github.bonigarcia:webdrivermanager:$webDriverManagerVersion")
   implementation("com.codeborne:selenide:$selenideVersion")
   implementation("com.squareup.okhttp3:okhttp:$okHttpVersion")
-  implementation("com.squareup.okhttp3:logging-interceptor:$okHttpLoggerInterseptorVersion")
+  implementation("com.squareup.okhttp3:logging-interceptor:$okHttpVersion")
   testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
   testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")

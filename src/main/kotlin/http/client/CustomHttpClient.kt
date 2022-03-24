@@ -1,9 +1,9 @@
 package http.client
 
+import app.config.provider.ApplicationConfigProvider
 import http.model.interseptors.ExceptionStatusInterceptor
 import http.model.interseptors.ModifyHeaderInterceptor
 import http.model.response.TafResponse
-import okhttp3.Call
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Request.Builder
@@ -11,6 +11,7 @@ import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 
 class CustomHttpClient : TafHttpClient {
+  private val applicationConfig = ApplicationConfigProvider().getConfigData()
   override val logger: HttpLoggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS)
 
   override val httpClient: OkHttpClient = OkHttpClient().newBuilder()
@@ -22,8 +23,7 @@ class CustomHttpClient : TafHttpClient {
 
   override fun get(path: String): TafResponse {
     val request: Request = Builder().get().url(path).build()
-    val call: Call = httpClient.newCall(request)
-    val response: Response = call.execute()
+    val response: Response = httpClient.newCall(request).execute()
     return TafResponse(response)
   }
 
