@@ -12,7 +12,7 @@ registrationRouteUi: /client-area/#/registration
 crmStartEndpoint: /new-admin
 crmLoginEndpoint: /new-admin/#/login
 crmUser:
-login: admmin
-password: nimda2012
-captcha: 11111
-role: Admin
+  login: admmin
+  password: pass2021
+  captcha: 11111
+  role: Admin

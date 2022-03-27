@@ -2,6 +2,7 @@ package app.config.model
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import config.model.TafConfig
+import crm.config.model.CrmUser
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class ApplicationConfig(
@@ -13,7 +14,8 @@ data class ApplicationConfig(
   val registrationRoute: String,
   val registrationRouteUi: String,
   val crmStartEndpoint: String,
-  val crmLoginEndpoint: String
+  val crmLoginEndpoint: String,
+  val crmUser: CrmUser
 ) : TafConfig {
 
   fun getBaseUrlWithAuthorisation(): String {
