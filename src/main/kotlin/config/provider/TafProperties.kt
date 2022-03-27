@@ -8,5 +8,4 @@ object TafProperties {
   const val CONFIG_COOKIE_DELIMETER = "config.resource.cookie.delimiter"
   const val CONFIG_COOKIE_VALUE_DELIMETER = "config.resource.cookie.value.delimiter"
   const val CONFIG_BASE_PARAM_NAME_COOKIE = "config.resource.cookie.name.param"
-  const val CONFIG_MYEXCEPT_MESSAGE = "config.resource.myexception.message"
 }

@@ -2,8 +2,6 @@ package http.client
 
 import app.config.model.ApplicationConfig
 import app.config.provider.ApplicationConfigProvider
-import config.provider.TafProperties.CONFIG_MYEXCEPT_MESSAGE
-import config.utils.AppConfigReader
 import http.model.response.TafResponse
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertThrows
@@ -33,8 +31,6 @@ class CustomHttpClientTest {
   fun `verify registration get request - exception message when route is wrong`() {
     val exception: Exception = assertThrows(Exception::class.java)
     { CustomHttpClient().get(applicationConfig.setRoute(wrongRoute)) }
-    val expectedMessage = AppConfigReader.getConfigParam(CONFIG_MYEXCEPT_MESSAGE)
-    val actualMessage = exception.message
-    Assertions.assertTrue(actualMessage!!.contains(expectedMessage))
+    Assertions.assertEquals(IllegalStateException::class.java, exception::class.java)
   }
 }

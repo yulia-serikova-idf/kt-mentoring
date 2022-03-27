@@ -6,10 +6,14 @@ import config.model.TafConfig
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class ApplicationConfig(
   private val host: String,
+  val serverHostIp: String,
   val user: String,
   val pass: String,
   private val prefixProtocol: ProtocolType,
-  val registrationRoute: String
+  val registrationRoute: String,
+  val registrationRouteUi: String,
+  val crmStartEndpoint: String,
+  val crmLoginEndpoint: String
 ) : TafConfig {
 
   fun getBaseUrlWithAuthorisation(): String {
@@ -22,5 +26,9 @@ data class ApplicationConfig(
 
   fun setRoute(route: String): String {
     return getBaseUrlWithAuthorisation() + route
+  }
+
+  fun getBaseUrl(): String {
+    return "${prefixProtocol.prefixName}$host"
   }
 }
