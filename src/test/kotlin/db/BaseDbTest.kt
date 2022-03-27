@@ -1,6 +1,6 @@
 package db
 
-import db.util.TafConnectorUtil
+import db.util.TafDbClient
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.TestInstance
@@ -10,11 +10,11 @@ abstract class BaseDbTest {
 
   @BeforeAll
   fun initDb() {
-    TafConnectorUtil().getSession()
+    TafDbClient().getSession()
   }
 
   @AfterAll
   fun closeDb() {
-    TafConnectorUtil().closeSessions()
+    TafDbClient().closeSessions()
   }
 }

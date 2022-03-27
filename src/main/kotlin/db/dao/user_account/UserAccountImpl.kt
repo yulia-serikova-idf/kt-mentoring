@@ -1,15 +1,15 @@
 package db.dao.user_account
 
-import db.dao.TafStatementManager
+import db.util.TafDbClient
 
 class UserAccountImpl : UserAccountDao {
-  private val statementManager = TafStatementManager()
+  override val dbClient = TafDbClient()
 
   override fun findById(id: Int): Map<String, Any> {
-    return statementManager.findAny("select * from user_account where id = ?", id)
+    return dbClient.findAny("select * from user_account where id = ?", id)
   }
 
   override fun findAll(): List<HashMap<String, Any>> {
-    return statementManager.findAll("select * from user_account")
+    return dbClient.findAll("select * from user_account")
   }
 }

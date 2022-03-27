@@ -6,13 +6,15 @@ import org.junit.jupiter.api.Test
 
 class UserAccountServiceTest : BaseDbTest() {
   val userAccountService = UserAccountService()
-  val testExpectedDataNameAndEmail = "test2@moneyman.ru | Sergey Shikunets"
+  val expectedUserName = "Sergey Shikunets"
+  val expectedUserEmail = "test2@moneyman.ru"
   val testExpectedCountBlockedUsers = 102
 
   @Test
   fun `verify UserAccount - check name and email by id`() {
-    val testActualDataNameAndEmail = userAccountService.getUserNameAndEmailById(1)
-    Assertions.assertEquals(testExpectedDataNameAndEmail, testActualDataNameAndEmail)
+    val actualMap: Map<String, Any> = userAccountService.getUserNameAndEmailById(1)
+    Assertions.assertEquals(expectedUserName, actualMap["name"])
+    Assertions.assertEquals(expectedUserEmail, actualMap["email"])
   }
 
   @Test

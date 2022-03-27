@@ -4,3 +4,10 @@ host: qa-delivery-ru-release.moneyman.ru
 driver: local
 isActual: true
 prefixProtocol: HTTPS
+
+dbConfig:
+  url: jdbc:mysql://14350.1.1.56
+  port: 3306
+  user: automation-tests
+  password: 435345
+  schema: ru_master_moneyman
