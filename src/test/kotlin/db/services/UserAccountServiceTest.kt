@@ -12,14 +12,14 @@ class UserAccountServiceTest : BaseDbTest() {
 
   @Test
   fun `verify UserAccount - check name and email by id`() {
-    val actualMap: Map<String, Any> = userAccountService.getUserNameAndEmailById(1)
+    val actualMap: Map<String, Any> = userAccountService.getUserNameAndEmailByIdRu(1)
     Assertions.assertEquals(expectedUserName, actualMap["name"])
     Assertions.assertEquals(expectedUserEmail, actualMap["email"])
   }
 
   @Test
   fun `verify UserAccount - check count of blocked users `() {
-    val testActualCountBlockedUsers = userAccountService.getAllBlockedUsers().count()
+    val testActualCountBlockedUsers = userAccountService.getAllBlockedUsersRu().count()
     Assertions.assertEquals(testExpectedCountBlockedUsers, testActualCountBlockedUsers)
   }
 }

@@ -17,13 +17,15 @@ class TafDbClient : DbClient {
   }
 
   override fun closeSessions() {
-    session?.connection?.close()
-    session = null
+    session?.also {
+      it.connection?.close()
+      session = null //??
+    }
   }
 
   override fun findAny(queryString: String, vararg param: Any): Map<String, Any> {
     val query = sqlQuery(queryString).params(params = param)
-    return getSession().first(query, TafExtractorDataSet.extractRow)!!
+    return getSession().first(query, TafExtractorDataSet.extractRow) ?: emptyMap()
   }
 
   override fun findAll(queryString: String, vararg param: Any): List<HashMap<String, Any>> {
