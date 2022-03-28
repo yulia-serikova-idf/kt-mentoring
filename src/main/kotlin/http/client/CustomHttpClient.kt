@@ -12,10 +12,9 @@ import okhttp3.logging.HttpLoggingInterceptor
 
 class CustomHttpClient : TafHttpClient {
   private val applicationConfig = ApplicationConfigProvider().getConfigData()
-  override val logger: HttpLoggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS)
 
   override val httpClient: OkHttpClient = OkHttpClient().newBuilder()
-    .addInterceptor(logger)
+    .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS))
     .addInterceptor(BaseAuthInterseptor(applicationConfig.user, applicationConfig.pass))
     .addInterceptor(ModifyHeaderInterceptor())
     .addInterceptor(ExceptionStatusInterceptor())

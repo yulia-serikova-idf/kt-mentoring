@@ -13,8 +13,4 @@ data class CrmUserRequest(
     password = user.password,
     captcha = user.captcha
   )
-
-  fun getCrmUserRequest(): CrmUserRequest {
-    return CrmUserRequest(login, password, captcha)
-  }
 }
