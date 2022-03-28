@@ -10,12 +10,12 @@ object TafUiElementWaiter {
   private var logger = LoggerFactory.getLogger(TafUiElementWaiter::class.java)
   const val defaultWaitElementStateSec: Long = 10
 
-  fun waitElementNotExists(locator: By, timeoutSeconds: Long) {
+  fun waitElementNotExists(locator: By, timeoutSeconds: Long = defaultWaitElementStateSec) {
     logger.info("Wait for element [$locator] not exists. Max wait period [$timeoutSeconds] seconds")
     Selenide.`$`(locator).shouldBe(Condition.not(Condition.exist), Duration.ofSeconds(timeoutSeconds))
   }
 
-  fun waitElementVisible(locator: By, timeoutSeconds: Long) {
+  fun waitElementVisible(locator: By, timeoutSeconds: Long = defaultWaitElementStateSec) {
     logger.info("Wait for element [$locator] not exists. Max wait period [$timeoutSeconds] seconds")
     Selenide.`$`(locator).shouldBe(Condition.visible, Duration.ofSeconds(timeoutSeconds))
   }

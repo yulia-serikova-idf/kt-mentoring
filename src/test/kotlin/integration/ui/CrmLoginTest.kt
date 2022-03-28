@@ -1,12 +1,14 @@
 package integration.ui
 
-import controllers.CrmUiLoginTestsController
 import org.junit.jupiter.api.Test
+import services.ui.CrmUiOperationService
 
 class CrmLoginTest : BaseUITest() {
 
   @Test
   fun `login to crm`() {
-    CrmUiLoginTestsController(applicationConfig).logInToCrm()
+    val crmUiOperationService = CrmUiOperationService(applicationConfig)
+    crmUiOperationService.logInCrm()
+    crmUiOperationService.checkMainPageHeader()
   }
 }

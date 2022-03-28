@@ -7,7 +7,7 @@ import crm.config.model.CrmUser
 
 import http.retrofit.RetrofitClient
 
-class CrmUserAuthorizationController(val applicationConfig: ApplicationConfig) {
+class CrmUserAuthorizationController(private val applicationConfig: ApplicationConfig) {
   private val service: CrmAuthorizationService = RetrofitClient()
     .getClient(applicationConfig.getBaseUrl())
     .create(CrmAuthorizationService::class.java)

@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory
 
 class CalculatorBlock : BaseBlock {
   private var logger = LoggerFactory.getLogger(CalculatorBlock::class.java)
-  override val blockLocator: By = By.xpath("//div[contains(@class, 'calculator-block')]")
+  override val blockLocator: By = By.cssSelector("div[class*='calculator-block']")
 
   override fun checkFrameIsLoaded() {
     `$`(blockLocator).shouldBe(Condition.visible)
