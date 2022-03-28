@@ -35,6 +35,7 @@ dependencies {
   implementation("com.squareup.retrofit2:converter-gson:$converterGsonVersion")
   testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
   testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
+  testImplementation("com.github.tomakehurst:wiremock-jre8:2.32.0")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
 }
 
