@@ -2,20 +2,22 @@ package ui.pages.blocks
 
 import com.codeborne.selenide.Condition
 import com.codeborne.selenide.Selenide.`$`
+import org.openqa.selenium.By
 import org.slf4j.LoggerFactory
-import ui.utils.TafWaiter
+import ui.waiter.TafUiElementWaiter
+import ui.waiter.TafUiElementWaiter.defaultWaitElementStateSec
 
 class CrmMainHeaderBlock : BaseBlock {
   private var logger = LoggerFactory.getLogger(CrmMainHeaderBlock::class.java)
-  override val blockLocator = "header[id='header'] "
-  private val headerUserInfoBlock = blockLocator + "div[class='header_accountInfo'] a[href='#changePassword']"
+  override val blockLocator: By =
+    By.cssSelector("header[id='header'] div[class='header_accountInfo'] a[href='#changePassword']")
 
   override fun checkFrameIsLoaded() {
-    TafWaiter().waitElementVisible(`$`(headerUserInfoBlock), 15)
-    logger.info("Crm main page header block is visible")
+    logger.info("Verify crm main page header block is visible")
+    TafUiElementWaiter.waitElementVisible(blockLocator, defaultWaitElementStateSec)
   }
 
-  fun checkUserName(fullName: String) {
-    `$`(headerUserInfoBlock).shouldHave(Condition.text(fullName))
+  fun checkHeaderCrmUserName(fullName: String) {
+    `$`(blockLocator).shouldHave(Condition.text(fullName))
   }
 }

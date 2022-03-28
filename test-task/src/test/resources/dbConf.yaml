@@ -1,4 +1,0 @@
-#DB Mongo
-dbMongoConfig:
-  host: localhost
-  port: 27017
