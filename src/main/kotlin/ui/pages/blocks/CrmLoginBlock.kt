@@ -4,7 +4,6 @@ import com.codeborne.selenide.Selenide.`$`
 import org.openqa.selenium.By
 import org.slf4j.LoggerFactory
 import ui.waiter.TafUiElementWaiter
-import ui.waiter.TafUiElementWaiter.defaultWaitElementStateSec
 
 class CrmLoginBlock : BaseBlock {
   private var logger = LoggerFactory.getLogger(CrmLoginBlock::class.java)
@@ -16,7 +15,7 @@ class CrmLoginBlock : BaseBlock {
 
   override fun checkFrameIsLoaded() {
     logger.info("Verify crm login block is visible")
-    TafUiElementWaiter.waitElementVisible(blockLocator, defaultWaitElementStateSec)
+    TafUiElementWaiter.waitElementVisible(blockLocator)
   }
 
   fun inputLogin(login: String) {
@@ -33,6 +32,6 @@ class CrmLoginBlock : BaseBlock {
 
   fun clickButton() {
     `$`(submitButton).click()
-    TafUiElementWaiter.waitElementNotExists(submitButton, defaultWaitElementStateSec)
+    TafUiElementWaiter.waitElementNotExists(submitButton)
   }
 }
