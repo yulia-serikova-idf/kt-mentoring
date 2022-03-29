@@ -1,23 +1,19 @@
 package ui.pages.home
 
 import app.config.model.ApplicationConfig
-import ui.Browser
-import ui.pages.BasePage
+import ui.pages.DefaultPage
 import ui.pages.blocks.CalculatorBlock
 
-/**
- * пока без собственных ожиданий
- */
-class MainPage(applicationConfig: ApplicationConfig) : BasePage {
+class MainPage(applicationConfig: ApplicationConfig) : DefaultPage() {
   override val url = applicationConfig.getBaseUrlWithAuthorisation()
   private val calculatorBlock = CalculatorBlock()
 
   override fun openPage() {
-    Browser.openWithUrl(url)
+    super.openPage()
     checkPageIsLoaded()
   }
 
-  override fun checkPageIsLoaded() {
+  fun checkPageIsLoaded() {
     calculatorBlock.checkFrameIsLoaded()
   }
 }
