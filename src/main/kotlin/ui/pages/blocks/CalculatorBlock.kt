@@ -1,15 +1,16 @@
 package ui.pages.blocks
 
 import com.codeborne.selenide.Condition
-import com.codeborne.selenide.Selenide.`$x`
+import com.codeborne.selenide.Selenide.`$`
+import org.openqa.selenium.By
 import org.slf4j.LoggerFactory
 
 class CalculatorBlock : BaseBlock {
   private var logger = LoggerFactory.getLogger(CalculatorBlock::class.java)
-  override val blockLocator: String = "//div[contains(@class, 'calculator-block')]"
+  override val blockLocator: By = By.cssSelector("div[class*='calculator-block']")
 
   override fun checkFrameIsLoaded() {
-    `$x`(blockLocator).shouldBe(Condition.visible)
+    `$`(blockLocator).shouldBe(Condition.visible)
     logger.info("Calculator block is visible")
   }
 }

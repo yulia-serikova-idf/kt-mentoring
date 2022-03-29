@@ -7,6 +7,9 @@ val webDriverManagerVersion: String by project
 val selenideVersion: String by project
 val jdbcVersion: String by project
 val mysqlConnectorVersion: String by project
+val okHttpVersion: String by project
+val retrofitVersion: String by project
+val converterGsonVersion: String by project
 
 plugins {
   kotlin("jvm") version "1.5.10"
@@ -30,6 +33,10 @@ dependencies {
   implementation("com.codeborne:selenide:$selenideVersion")
   implementation("com.vladsch.kotlin-jdbc:kotlin-jdbc:$jdbcVersion")
   implementation("mysql:mysql-connector-java:$mysqlConnectorVersion")
+  implementation("com.squareup.okhttp3:okhttp:$okHttpVersion")
+  implementation("com.squareup.okhttp3:logging-interceptor:$okHttpVersion")
+  implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
+  implementation("com.squareup.retrofit2:converter-gson:$converterGsonVersion")
   testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
   testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
