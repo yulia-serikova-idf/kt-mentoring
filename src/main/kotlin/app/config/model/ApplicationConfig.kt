@@ -2,6 +2,7 @@ package app.config.model
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import config.model.TafConfig
+import db.config.model.DbConfig
 import crm.config.model.CrmUser
 import mock.config.model.MockConfig
 
@@ -17,6 +18,7 @@ data class ApplicationConfig(
   val crmStartEndpoint: String,
   val crmLoginEndpoint: String,
   var crmUser: CrmUser,
+  val dbConfig: DbConfig,
   var mockConfig: MockConfig
 ) : TafConfig {
 
