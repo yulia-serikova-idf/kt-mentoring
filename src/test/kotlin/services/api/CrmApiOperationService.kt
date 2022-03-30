@@ -9,4 +9,9 @@ class CrmApiOperationService(private val applicationConfig: ApplicationConfig) {
   fun getResponseCrmUserAuthorization(): CrmUserResponse {
     return CrmUserAuthorizationController(applicationConfig).authCrm()
   }
+
+  fun getCookieValueFromCrmUserAuthorization(cookieName: String): String {
+    return getResponseCrmUserAuthorization().cookiesResponse
+      .getCookieByName(cookieName)!!
+  }
 }

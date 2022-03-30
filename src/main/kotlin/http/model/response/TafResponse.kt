@@ -8,7 +8,6 @@ import okhttp3.Headers
 import okhttp3.Response
 
 class TafResponse(private val response: Response) {
-
   private fun getHeaders(response: Response): Headers {
     return response.headers
   }

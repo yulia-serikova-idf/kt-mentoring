@@ -6,9 +6,6 @@ import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
 
-/**
- * TODO  /run-auth-server/auth/token
- */
 interface CrmAuthorizationService {
   @POST("/secure/rest/sign/in")
   fun postCrmAuthorization(

@@ -13,7 +13,6 @@ class RetrofitClient {
       .client(CustomHttpClient().httpClient)
       .addConverterFactory(GsonConverterFactory.create())
       .build()
-
     return retrofit!!
   }
 }

@@ -3,19 +3,21 @@ package app.config.model
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import config.model.TafConfig
 import crm.config.model.CrmUser
+import mock.config.model.MockConfig
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class ApplicationConfig(
-  private val host: String,
+  private var host: String,
   val serverHostIp: String,
   val user: String,
   val pass: String,
-  private val prefixProtocol: ProtocolType,
+  private var prefixProtocol: ProtocolType,
   val registrationRoute: String,
   val registrationRouteUi: String,
   val crmStartEndpoint: String,
   val crmLoginEndpoint: String,
-  val crmUser: CrmUser
+  var crmUser: CrmUser,
+  var mockConfig: MockConfig
 ) : TafConfig {
 
   fun getBaseUrlWithAuthorisation(): String {
@@ -32,5 +34,19 @@ data class ApplicationConfig(
 
   fun getBaseUrl(): String {
     return "${prefixProtocol.prefixName}$host"
+  }
+
+  fun clone(): ApplicationConfig {
+    val cloneObj = this.copy()
+    cloneObj.crmUser = this.crmUser.copy()
+    cloneObj.mockConfig = this.mockConfig.copy()
+    return cloneObj
+  }
+
+  fun getMockAppConfig(): ApplicationConfig {
+    return this.clone().apply {
+      prefixProtocol = ProtocolType.HTTP
+      host = mockConfig.host + ":" + mockConfig.port
+    }
   }
 }

@@ -1,6 +1,7 @@
 package services.ui
 
 import app.config.model.ApplicationConfig
+import ui.Browser
 import ui.pages.crm.CrmLoginPage
 import ui.pages.crm.CrmMainPage
 
@@ -21,5 +22,10 @@ class CrmUiOperationService(private val applicationConfig: ApplicationConfig) {
   fun checkMainPageHeader(userName: String) {
     crmMainPage.openPage()
     crmMainPage.headerBlock.checkHeaderCrmUserName(userName)
+  }
+
+  fun openLoginAndSetCookie(cookieName: String, cookieValue: String) {
+    crmLoginPage.openPage()
+    Browser.addCookie(cookieName, cookieValue)
   }
 }

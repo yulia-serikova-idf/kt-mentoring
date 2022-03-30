@@ -16,7 +16,7 @@ crmUser:
   password: pass2021
   captcha: 11111
   role: Admin
-#wiremock
-wireMockClientConfig:
+#mock
+mockConfig:
   host: localhost
-  port: 8085
+  port: 8080

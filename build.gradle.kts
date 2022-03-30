@@ -8,6 +8,7 @@ val selenideVersion: String by project
 val okHttpVersion: String by project
 val retrofitVersion: String by project
 val converterGsonVersion: String by project
+val wireMockVersion: String by project
 
 plugins {
   kotlin("jvm") version "1.5.10"
@@ -33,12 +34,13 @@ dependencies {
   implementation("com.squareup.okhttp3:logging-interceptor:$okHttpVersion")
   implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
   implementation("com.squareup.retrofit2:converter-gson:$converterGsonVersion")
+  implementation("com.github.tomakehurst:wiremock:$wireMockVersion")
   testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
   testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
-  testImplementation("com.github.tomakehurst:wiremock-jre8:2.32.0")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
 }
 
 tasks.test {
   useJUnitPlatform()
+  //run java -jar wiremock-jre8-standalone-2.32.0.jar
 }
