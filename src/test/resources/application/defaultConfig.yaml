@@ -16,3 +16,10 @@ crmUser:
   password: pass2021
   captcha: 11111
   role: Admin
+
+dbConfig:
+  url: jdbc:mysql://14350.1.1.56
+  port: 3306
+  user: automation-tests
+  password: 435345
+  schema: ru_master_moneyman

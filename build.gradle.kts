@@ -5,6 +5,8 @@ val log4jVersion: String by project
 val slf4jVersion: String by project
 val webDriverManagerVersion: String by project
 val selenideVersion: String by project
+val jdbcVersion: String by project
+val mysqlConnectorVersion: String by project
 val okHttpVersion: String by project
 val retrofitVersion: String by project
 val converterGsonVersion: String by project
@@ -29,6 +31,8 @@ dependencies {
   implementation("org.slf4j:slf4j-log4j12:$slf4jVersion")
   implementation("io.github.bonigarcia:webdrivermanager:$webDriverManagerVersion")
   implementation("com.codeborne:selenide:$selenideVersion")
+  implementation("com.vladsch.kotlin-jdbc:kotlin-jdbc:$jdbcVersion")
+  implementation("mysql:mysql-connector-java:$mysqlConnectorVersion")
   implementation("com.squareup.okhttp3:okhttp:$okHttpVersion")
   implementation("com.squareup.okhttp3:logging-interceptor:$okHttpVersion")
   implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
