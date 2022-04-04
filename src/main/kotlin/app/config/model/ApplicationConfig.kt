@@ -2,8 +2,8 @@ package app.config.model
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import config.model.TafConfig
-import db.config.model.DbConfig
 import crm.config.model.CrmUser
+import db.config.model.DbConfig
 import mock.config.model.MockConfig
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -38,17 +38,7 @@ data class ApplicationConfig(
     return "${prefixProtocol.prefixName}$host"
   }
 
-  fun clone(): ApplicationConfig {
-    val cloneObj = this.copy()
-    cloneObj.crmUser = this.crmUser.copy()
-    cloneObj.mockConfig = this.mockConfig.copy()
-    return cloneObj
-  }
-
-  fun getMockAppConfig(): ApplicationConfig {
-    return this.clone().apply {
-      prefixProtocol = ProtocolType.HTTP
-      host = mockConfig.host + ":" + mockConfig.port
-    }
+  fun getMockUrl(): String {
+    return ProtocolType.HTTP.prefixName + mockConfig.host + ":" + mockConfig.port
   }
 }

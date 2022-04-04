@@ -1,17 +1,22 @@
 package services.api
 
-import app.config.model.ApplicationConfig
 import crm.api.CrmUserAuthorizationController
 import crm.api.model.CrmUserResponse
+import crm.config.model.CrmUser
 
-class CrmApiOperationService(private val applicationConfig: ApplicationConfig) {
+class CrmApiOperationService(private val baseUrl: String, private val crmUser: CrmUser) {
 
   fun getResponseCrmUserAuthorization(): CrmUserResponse {
-    return CrmUserAuthorizationController(applicationConfig).authCrm()
+    return CrmUserAuthorizationController(baseUrl, crmUser).authCrm()
   }
 
-  fun getCookieValueFromCrmUserAuthorization(cookieName: String): String {
-    return getResponseCrmUserAuthorization().cookiesResponse
-      .getCookieByName(cookieName)!!
+  /**
+   * TODO ENUM
+   */
+  fun getJSessionAuthorisationCookie(cookieName: String = "JSESSIONID"): Map<String, String> {
+    return mapOf(
+      cookieName to getResponseCrmUserAuthorization().cookiesResponse
+        .getCookieByName(cookieName)!!
+    )
   }
 }

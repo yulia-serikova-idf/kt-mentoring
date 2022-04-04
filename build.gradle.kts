@@ -11,6 +11,7 @@ val okHttpVersion: String by project
 val retrofitVersion: String by project
 val converterGsonVersion: String by project
 val wireMockVersion: String by project
+val mockKVersion: String by project
 
 plugins {
   kotlin("jvm") version "1.5.10"
@@ -41,6 +42,7 @@ dependencies {
   implementation("com.github.tomakehurst:wiremock:$wireMockVersion")
   testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
   testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
+  testImplementation("io.mockk:mockk:$mockKVersion")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
 }
 

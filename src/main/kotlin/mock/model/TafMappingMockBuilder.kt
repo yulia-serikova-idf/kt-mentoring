@@ -4,7 +4,7 @@ import com.github.tomakehurst.wiremock.client.MappingBuilder
 import com.github.tomakehurst.wiremock.client.ResponseDefinitionBuilder
 import com.github.tomakehurst.wiremock.client.WireMock
 import com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo
-import mock.converter.FileToString
+import converter.FileToString
 
 class TafMappingMockBuilder {
 
@@ -13,7 +13,7 @@ class TafMappingMockBuilder {
       WireMock.any(urlEqualTo(mockEndpoint))
         .atPriority(priority)
         .withName(mockName)
-        ?.willReturn(TafMappingMockBuilder().getStubResponseConfig(mockConfig))
+        ?.willReturn(getStubResponseConfig(mockConfig))
     }
   }
 

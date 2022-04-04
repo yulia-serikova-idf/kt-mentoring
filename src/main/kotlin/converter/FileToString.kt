@@ -1,4 +1,4 @@
-package mock.converter
+package converter
 
 object FileToString {
   fun getMockDataFromFileToString(path: String): String {
