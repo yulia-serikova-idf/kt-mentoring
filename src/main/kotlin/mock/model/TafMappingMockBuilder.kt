@@ -22,7 +22,7 @@ class TafMappingMockBuilder {
       val responseDefinitionBuilder = WireMock.aResponse()
       responseDefinitionBuilder
         .withStatus(status!!)
-        .withBody(FileToString.getMockDataFromFileToString(responseFilePath!!))
+        .withBody(FileToString.getFileAsString(responseFilePath!!))
       header.forEach {
         responseDefinitionBuilder.withHeader(it.key, it.value)
       }
