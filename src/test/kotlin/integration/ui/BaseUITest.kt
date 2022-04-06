@@ -33,7 +33,6 @@ abstract class BaseUITest {
   fun init() {
     applicationConfig = contextApplicationConfig()
     CrmApiOperationService(applicationConfig.getBaseUrlWithAuthorisation(), applicationConfig.crmUser)
-      .getJSessionAuthorisationCookie()
     driverConfig = DriverConfigProvider().getConfigData()
     DriverProvider().define(driverConfig)
   }
