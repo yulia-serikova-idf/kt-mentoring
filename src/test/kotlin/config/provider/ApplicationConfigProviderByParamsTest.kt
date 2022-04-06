@@ -3,7 +3,7 @@ package config.provider
 import app.config.factory.JsonConfigFactory
 import app.config.factory.YamlConfigFactory
 import app.config.model.ConfigExtensionType.JSON
-import app.config.provider.ApplicationConfigProvider
+import context.constant.provider.ApplicationConfigProvider
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 

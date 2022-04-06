@@ -1,9 +1,9 @@
 package db.util
 
-import app.config.provider.ApplicationConfigProvider
 import com.vladsch.kotlin.jdbc.Session
 import com.vladsch.kotlin.jdbc.session
 import com.vladsch.kotlin.jdbc.sqlQuery
+import context.constant.provider.ApplicationConfigProvider
 
 class TafDbClient : DbClient {
   private var session: Session? = null

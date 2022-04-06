@@ -1,8 +1,7 @@
-package crm.config.model
+package context.constant.application
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
-import config.model.TafConfig
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class CrmUser(

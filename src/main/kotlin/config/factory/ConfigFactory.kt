@@ -1,6 +1,6 @@
 package config.factory
 
-import config.model.TafConfig
+import context.constant.application.TafConfig
 
 interface ConfigFactory {
   fun getConfig(): TafConfig

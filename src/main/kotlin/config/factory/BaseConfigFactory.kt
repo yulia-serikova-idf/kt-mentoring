@@ -1,12 +1,12 @@
 package config.factory
 
-import app.config.model.ApplicationConfig
 import app.config.model.ConfigExtensionType
 import com.fasterxml.jackson.core.JsonFactory
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.KotlinModule
-import config.model.TafConfig
 import config.utils.AppConfigReader.getConfigParam
+import context.constant.application.ApplicationConfig
+import context.constant.application.TafConfig
 import java.nio.file.Path
 import java.nio.file.Paths
 

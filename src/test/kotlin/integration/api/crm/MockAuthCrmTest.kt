@@ -1,6 +1,6 @@
 package integration.api.crm
 
-import app.config.provider.ApplicationConfigProvider
+import context.constant.provider.ApplicationConfigProvider
 import crm.api.CrmUserAuthorizationController
 import mock.controller.MockController
 import mock.model.CrmAuthMock

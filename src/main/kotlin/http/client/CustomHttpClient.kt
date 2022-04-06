@@ -1,6 +1,6 @@
 package http.client
 
-import app.config.provider.ApplicationConfigProvider
+import context.constant.provider.ApplicationConfigProvider
 import http.model.interseptors.ExceptionStatusInterceptor
 import http.model.interseptors.ModifyHeaderInterceptor
 import http.model.response.TafResponse

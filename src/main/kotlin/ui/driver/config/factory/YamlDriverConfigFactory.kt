@@ -3,8 +3,8 @@ package ui.driver.config.factory
 import app.config.model.ConfigExtensionType
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
 import config.factory.BaseConfigFactory
-import config.model.TafConfig
 import config.provider.TafProperties
+import context.constant.application.TafConfig
 import ui.driver.config.model.DriverConfig
 
 class YamlDriverConfigFactory() : BaseConfigFactory(

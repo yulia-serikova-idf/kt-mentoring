@@ -1,8 +1,8 @@
 package services.api
 
+import context.constant.application.CrmUser
 import crm.api.CrmUserAuthorizationController
 import crm.api.model.CrmUserResponse
-import crm.config.model.CrmUser
 
 class CrmApiOperationService(private val baseUrl: String, private val crmUser: CrmUser) {
 

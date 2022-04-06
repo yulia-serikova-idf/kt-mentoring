@@ -1,14 +1,14 @@
-package app.config.provider
+package context.constant.provider
 
 import app.config.factory.JsonConfigFactory
 import app.config.factory.YamlConfigFactory
-import app.config.model.ApplicationConfig
 import app.config.model.ConfigExtensionType
 import app.config.model.ConfigExtensionType.valueOf
 import config.factory.ConfigFactory
 import config.provider.TafProperties
 import config.provider.TafProperties.CONFIG_FILETYPE_SYSTEM_PROPERTY
 import config.utils.AppConfigReader.getConfigParam
+import context.constant.application.ApplicationConfig
 import org.slf4j.LoggerFactory
 
 class ApplicationConfigProvider {

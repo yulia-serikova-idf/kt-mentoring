@@ -1,6 +1,4 @@
-package db.config.model
-
-import config.model.TafConfig
+package context.constant.application
 
 data class DbConfig(
   val url: String,

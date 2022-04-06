@@ -1,7 +1,7 @@
 package mock.service
 
-import app.config.model.ApplicationConfig
 import com.github.tomakehurst.wiremock.client.WireMock
+import context.constant.application.ApplicationConfig
 import mock.model.TafMappingMockBuilder
 import mock.model.TafMock
 

@@ -1,6 +1,6 @@
 package services.ui
 
-import app.config.model.ApplicationConfig
+import context.constant.application.ApplicationConfig
 import ui.Browser
 import ui.pages.crm.CrmLoginPage
 import ui.pages.crm.CrmMainPage

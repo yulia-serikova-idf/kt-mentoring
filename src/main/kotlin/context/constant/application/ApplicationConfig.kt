@@ -1,10 +1,6 @@
-package app.config.model
+package context.constant.application
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
-import config.model.TafConfig
-import crm.config.model.CrmUser
-import db.config.model.DbConfig
-import mock.config.model.MockConfig
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class ApplicationConfig(

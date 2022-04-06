@@ -1,7 +1,7 @@
 package http.client
 
-import app.config.model.ApplicationConfig
-import app.config.provider.ApplicationConfigProvider
+import context.constant.application.ApplicationConfig
+import context.constant.provider.ApplicationConfigProvider
 import http.model.response.TafResponse
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertThrows
