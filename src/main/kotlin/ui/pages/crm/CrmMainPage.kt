@@ -1,6 +1,6 @@
 package ui.pages.crm
 
-import app.config.model.ApplicationConfig
+import context.constant.application.ApplicationConfig
 import ui.pages.DefaultPage
 import ui.pages.blocks.CrmMainHeaderBlock
 

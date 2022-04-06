@@ -1,5 +1,6 @@
 package integration.ui
 
+import context.jSessionCookie
 import org.junit.jupiter.api.Test
 import services.api.CrmApiOperationService
 import services.ui.CrmUiOperationService
@@ -19,9 +20,7 @@ class CrmLoginTest : BaseUITest() {
 
   @Test
   fun `verify crm login by JSESSION from api response`() {
-    val cookie = CrmApiOperationService(applicationConfig.getBaseUrlWithAuthorisation(), applicationConfig.crmUser)
-      .getJSessionAuthorisationCookie()
-    CrmUiOperationService(applicationConfig).openLoginAndSetCookie(cookie)
+    jSessionCookie?.let { CrmUiOperationService(applicationConfig).openLoginAndSetCookie(it) }
     CrmMainPage(applicationConfig).openPage()
   }
 }

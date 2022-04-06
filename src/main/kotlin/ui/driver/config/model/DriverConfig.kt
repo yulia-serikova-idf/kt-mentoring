@@ -1,6 +1,6 @@
 package ui.driver.config.model
 
-import config.model.TafConfig
+import context.constant.application.TafConfig
 
 data class DriverConfig(
   val browser: BrowserType,

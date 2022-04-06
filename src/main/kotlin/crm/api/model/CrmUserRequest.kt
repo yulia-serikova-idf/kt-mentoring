@@ -1,6 +1,6 @@
 package crm.api.model
 
-import crm.config.model.CrmUser
+import context.constant.application.CrmUser
 
 data class CrmUserRequest(
   var login: String,

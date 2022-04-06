@@ -1,7 +1,7 @@
 package db.provider
 
-import app.config.provider.ApplicationConfigProvider
-import db.config.model.DbConfig
+import context.constant.application.DbConfig
+import context.constant.provider.ApplicationConfigProvider
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 

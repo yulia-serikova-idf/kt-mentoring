@@ -1,9 +1,9 @@
 package config.model
 
 import app.config.factory.YamlConfigFactory
-import app.config.provider.ApplicationConfigProvider
 import config.provider.TafProperties
 import config.utils.AppConfigReader
+import context.constant.provider.ApplicationConfigProvider
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach

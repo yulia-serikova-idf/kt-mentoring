@@ -1,6 +1,6 @@
 package ui.pages.home
 
-import app.config.model.ApplicationConfig
+import context.constant.application.ApplicationConfig
 import ui.pages.DefaultPage
 import ui.pages.blocks.CalculatorBlock
 
