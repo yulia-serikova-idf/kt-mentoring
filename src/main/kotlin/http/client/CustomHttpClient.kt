@@ -8,6 +8,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Request.Builder
 import okhttp3.Response
+import okhttp3.ResponseBody
 import okhttp3.logging.HttpLoggingInterceptor
 
 class CustomHttpClient : TafHttpClient {
@@ -23,7 +24,7 @@ class CustomHttpClient : TafHttpClient {
   override fun get(path: String): TafResponse {
     val request: Request = Builder().get().url(path).build()
     val response: Response = httpClient.newCall(request).execute()
-    return TafResponse(response)
+    return TafResponse(response as retrofit2.Response<ResponseBody>)
   }
 
   override fun post() {

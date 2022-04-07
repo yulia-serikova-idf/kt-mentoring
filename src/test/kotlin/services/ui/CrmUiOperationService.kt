@@ -24,8 +24,8 @@ class CrmUiOperationService(private val applicationConfig: ApplicationConfig) {
     crmMainPage.headerBlock.checkHeaderCrmUserName(userName)
   }
 
-  fun openLoginAndSetCookie(cookie: Map<String, String>) {
+  fun openLoginAndSetCookie(cookie: Pair<String, String>) {
     crmLoginPage.openPage()
-    cookie[cookie.keys.first().toString()]?.let { Browser.addCookie(cookie.keys.first(), it) }
+    cookie?.let { Browser.addCookie(it.first, it.second) }
   }
 }

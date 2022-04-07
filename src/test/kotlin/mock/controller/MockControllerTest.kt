@@ -31,17 +31,17 @@ class MockControllerTest {
 
   @Test
   fun `verify calls mockController setUp`() {
-    every { mockService.registerStubs(any()) } just Runs
-    every { mockService.verifyStub(any()) } just Runs
+    every { mockService.registerStubs(crmAuthMock) } just Runs
+    every { mockService.verifyStub(crmAuthMock) } just Runs
     mockController.setUp(mockConfig = crmAuthMock)
-    verify(exactly = 1) { mockService.registerStubs(any()) }
+    verify(exactly = 1) { mockService.registerStubs(crmAuthMock) }
   }
 
   @Test
   fun `verify calls mockController remove`() {
-    every { mockService.removeStubs(any()) } just Runs
+    every { mockService.removeStubs(crmAuthMock) } just Runs
     mockController.remove(mockConfig = crmAuthMock)
-    verify(exactly = 1) { mockService.removeStubs(any()) }
+    verify(exactly = 1) { mockService.removeStubs(crmAuthMock) }
   }
 
   @AfterEach
