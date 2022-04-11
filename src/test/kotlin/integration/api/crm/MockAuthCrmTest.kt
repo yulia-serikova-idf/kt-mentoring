@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test
 class MockAuthCrmTest : BaseContextManagerTest() {
   private val crmAuthMock: CrmAuthMock = CrmAuthMock()
   private val applicationConfig = ApplicationConfigProvider().getConfigData()
-  private val mockController = MockController(MockService(applicationConfig))
+  private val mockController = MockController(MockService())
 
   @BeforeEach
   fun configWireMockStub() {

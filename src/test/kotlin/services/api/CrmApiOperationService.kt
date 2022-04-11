@@ -1,18 +1,17 @@
 package services.api
 
+import context.contextApplicationConfig
 import crm.api.CrmUserAuthorizationController
+import crm.api.model.CrmUserResponse
 import http.model.response.TafResponse
 
-class CrmApiOperationService(private val baseUrl: String) {
+class CrmApiOperationService(private val baseUrl: String = contextApplicationConfig().getBaseUrl()) {
 
   fun getResponseCrmUserAuthorization(): TafResponse {
     return CrmUserAuthorizationController(baseUrl).authCrm()
   }
 
-  /**
-   * TODO ENUM
-   */
-  fun getJSessionAuthorisationCookie(cookieName: String = "JSESSIONID"): Pair<String, String> {
-    return (cookieName to getResponseCrmUserAuthorization().getCookieByName(cookieName)!!)
+  fun getCrmUserResponse(): CrmUserResponse {
+    return getResponseCrmUserAuthorization().convertBodyToObj(CrmUserResponse::class.java)
   }
 }

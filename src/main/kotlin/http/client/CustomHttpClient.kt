@@ -19,6 +19,7 @@ class CustomHttpClient : TafHttpClient {
     .addInterceptor(BaseAuthInterseptor(applicationConfig.user, applicationConfig.pass))
     .addInterceptor(ModifyHeaderInterceptor())
     .addInterceptor(ExceptionStatusInterceptor())
+    //.addInterceptor(SetResponceInterceptor())
     .build()
 
   override fun get(path: String): TafResponse {
