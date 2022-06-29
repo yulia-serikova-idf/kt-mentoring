@@ -10,6 +10,10 @@ import okhttp3.ResponseBody
 
 class TafResponse(private val response: retrofit2.Response<ResponseBody>) {
 
+  constructor() {
+    // convert types
+  }
+
   private fun getHeaders(): Headers {
     return response.headers()
   }

@@ -10,8 +10,7 @@ class CrmLoginTest : BaseUITest() {
 
   @Test
   fun `verify userName on crm main page header by api response data`() {
-    val crmAuthUserResponse = CrmApiOperationService()
-      .getCrmUserResponse()
+    val crmAuthUserResponse = CrmApiOperationService().getCrmUserResponse()
     crmUiOperationService.apply {
       logInCrm()
       checkMainPageHeader(crmAuthUserResponse.userName)
