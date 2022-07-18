@@ -1,6 +1,6 @@
 user: moneyman
 pass: 1005
-host: qa-delivery-ru-release.moneyman.ru
+host: qa-delivery-ru-master.moneyman.ru
 serverHostIp: 10.1.1.37
 driver: local
 isActual: true
@@ -13,7 +13,7 @@ crmStartEndpoint: /new-admin
 crmLoginEndpoint: /new-admin/#/login
 crmUser:
   login: admmin
-  password: nimda2012
+  password: pass2021
   captcha: 11111
   role: Admin
 
@@ -26,4 +26,4 @@ dbConfig:
 #mock
 mockConfig:
   host: localhost
-  port: 37115
+  port: 8080
