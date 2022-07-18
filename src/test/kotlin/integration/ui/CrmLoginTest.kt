@@ -19,7 +19,7 @@ class CrmLoginTest : BaseUITest() {
 
   @Test
   fun `verify crm login by JSESSION from api response`() {
-    CrmApiOperationService()
+    CrmApiOperationService().getResponseCrmUserAuthorization()
     jSessionCookie()?.let { crmUiOperationService.openLoginAndSetCookie(it) }
     CrmMainPage(contextApplicationConfig()).openPage()
   }

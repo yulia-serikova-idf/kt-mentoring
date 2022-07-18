@@ -13,7 +13,7 @@ crmStartEndpoint: /new-admin
 crmLoginEndpoint: /new-admin/#/login
 crmUser:
   login: admmin
-  password: pass2021
+  password: nimda2012
   captcha: 11111
   role: Admin
 
@@ -26,4 +26,4 @@ dbConfig:
 #mock
 mockConfig:
   host: localhost
-  port: 8080
+  port: 37115

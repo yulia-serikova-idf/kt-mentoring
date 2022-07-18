@@ -1,9 +1,8 @@
 package crm.api
 
 import context.contextApplicationConfig
-import context.dynamic.TafDynamicContextHolder
 import crm.api.model.CrmUserRequest
-import http.model.response.TafResponse
+import crm.api.model.CrmUserResponse
 import http.retrofit.RetrofitClient
 
 class CrmUserAuthorizationController(private val baseUrl: String) {
@@ -11,10 +10,8 @@ class CrmUserAuthorizationController(private val baseUrl: String) {
     .getClient(baseUrl)
     .create(CrmAuthorizationService::class.java)
 
-  fun authCrm(): TafResponse {
+  fun authCrm(): CrmUserResponse {
     val crmUserRequest = CrmUserRequest(contextApplicationConfig().crmUser)
-    val authTafResponse = TafResponse(service.postCrmAuthorization(crmUserRequest).execute())
-    TafDynamicContextHolder.getContext().sessionContext.contextResponse = authTafResponse
-    return authTafResponse
+    return service.postCrmAuthorization(crmUserRequest).execute().body()!!
   }
 }

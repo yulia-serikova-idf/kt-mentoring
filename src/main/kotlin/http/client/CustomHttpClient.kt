@@ -3,12 +3,12 @@ package http.client
 import context.constant.provider.ApplicationConfigProvider
 import http.model.interseptors.ExceptionStatusInterceptor
 import http.model.interseptors.ModifyHeaderInterceptor
+import http.model.interseptors.SetToContextResponseInterceptor
 import http.model.response.TafResponse
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Request.Builder
 import okhttp3.Response
-import okhttp3.ResponseBody
 import okhttp3.logging.HttpLoggingInterceptor
 
 class CustomHttpClient : TafHttpClient {
@@ -19,13 +19,13 @@ class CustomHttpClient : TafHttpClient {
     .addInterceptor(BaseAuthInterseptor(applicationConfig.user, applicationConfig.pass))
     .addInterceptor(ModifyHeaderInterceptor())
     .addInterceptor(ExceptionStatusInterceptor())
-    //.addInterceptor(SetResponceInterceptor())
+    .addInterceptor(SetToContextResponseInterceptor())
     .build()
 
   override fun get(path: String): TafResponse {
     val request: Request = Builder().get().url(path).build()
     val response: Response = httpClient.newCall(request).execute()
-    return TafResponse(response as retrofit2.Response<ResponseBody>)
+    return TafResponse(response)
   }
 
   override fun post() {
