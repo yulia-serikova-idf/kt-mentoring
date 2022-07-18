@@ -1,5 +1,6 @@
 package http.model.response
 
+import com.google.gson.Gson
 import config.provider.TafProperties.CONFIG_BASE_PARAM_NAME_COOKIE
 import config.provider.TafProperties.CONFIG_COOKIE_DELIMETER
 import config.provider.TafProperties.CONFIG_COOKIE_VALUE_DELIMETER
@@ -8,6 +9,7 @@ import okhttp3.Headers
 import okhttp3.Response
 
 class TafResponse(private val response: Response) {
+
   private fun getHeaders(response: Response): Headers {
     return response.headers
   }
@@ -29,5 +31,9 @@ class TafResponse(private val response: Response) {
       cookieParamValue = cookieMap[name]
     }
     return cookieParamValue
+  }
+
+  fun <T> convertBodyToObj(bodyType: Class<T>): T {
+    return Gson().fromJson(response.body?.string(), bodyType)
   }
 }

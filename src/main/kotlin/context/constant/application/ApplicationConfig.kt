@@ -35,6 +35,6 @@ data class ApplicationConfig(
   }
 
   fun getMockUrl(): String {
-    return ProtocolType.HTTP.prefixName + mockConfig.host + ":" + mockConfig.port
+    return ProtocolType.HTTP.prefixName + mockConfig.getUrl()
   }
 }

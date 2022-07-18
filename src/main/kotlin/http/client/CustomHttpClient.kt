@@ -3,6 +3,7 @@ package http.client
 import context.constant.provider.ApplicationConfigProvider
 import http.model.interseptors.ExceptionStatusInterceptor
 import http.model.interseptors.ModifyHeaderInterceptor
+import http.model.interseptors.SetToContextResponseInterceptor
 import http.model.response.TafResponse
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -18,6 +19,7 @@ class CustomHttpClient : TafHttpClient {
     .addInterceptor(BaseAuthInterseptor(applicationConfig.user, applicationConfig.pass))
     .addInterceptor(ModifyHeaderInterceptor())
     .addInterceptor(ExceptionStatusInterceptor())
+    .addInterceptor(SetToContextResponseInterceptor())
     .build()
 
   override fun get(path: String): TafResponse {

@@ -1,11 +1,12 @@
 package services.ui
 
 import context.constant.application.ApplicationConfig
+import context.contextApplicationConfig
 import ui.Browser
 import ui.pages.crm.CrmLoginPage
 import ui.pages.crm.CrmMainPage
 
-class CrmUiOperationService(private val applicationConfig: ApplicationConfig) {
+class CrmUiOperationService(private val applicationConfig: ApplicationConfig = contextApplicationConfig()) {
   private val crmLoginPage: CrmLoginPage by lazy { CrmLoginPage(applicationConfig) }
   private val crmMainPage: CrmMainPage by lazy { CrmMainPage(applicationConfig) }
 
@@ -24,8 +25,8 @@ class CrmUiOperationService(private val applicationConfig: ApplicationConfig) {
     crmMainPage.headerBlock.checkHeaderCrmUserName(userName)
   }
 
-  fun openLoginAndSetCookie(cookie: Map<String, String>) {
+  fun openLoginAndSetCookie(cookie: Pair<String, String>) {
     crmLoginPage.openPage()
-    cookie[cookie.keys.first().toString()]?.let { Browser.addCookie(cookie.keys.first(), it) }
+    cookie?.let { Browser.addCookie(it.first, it.second) }
   }
 }

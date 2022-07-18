@@ -1,14 +1,14 @@
 package mock.service
 
 import com.github.tomakehurst.wiremock.client.WireMock
-import context.constant.application.ApplicationConfig
+import context.contextApplicationConfig
 import mock.model.TafMappingMockBuilder
 import mock.model.TafMock
 
-class MockService(private val applicationConfig: ApplicationConfig) {
+class MockService() {
   private val wireMockConfigBuilder: TafMappingMockBuilder = TafMappingMockBuilder()
   private val mock: WireMock = WireMock.create().scheme("http")
-    .host(applicationConfig.mockConfig.host).port(applicationConfig.mockConfig.port).build()
+    .host(contextApplicationConfig().mockConfig.host).port(contextApplicationConfig().mockConfig.port).build()
 
   fun registerStubs(mockConfig: TafMock) {
     mock.register(wireMockConfigBuilder.getStubMapping(mockConfig)).apply { mockConfig.id = this.id }
